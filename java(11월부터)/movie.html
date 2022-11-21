@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+ <h2>안녕하세요. 여기는 movie 화면입니다.</h2>
+ <div id="data"></div>
+ 
+</body>
+ <script
+    src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"
+  ></script>
+  <script type="text/javascript">
+	callMyApi(); // 함수 호출
+  
+  	function callMyApi(){
+  		//ajax : 백엔드와 프론트가 통신하는 기능.
+  	      $.ajax({
+  	        url:'/api/v1/movies',
+  	        type:'GET', // GetMapping의 Get
+  	        datatype : 'json', // return 데이터를 json으로 받음.
+  	        sucess : function (response) {
+  	        	console.log(response);
+  	        	$('#data').append(response[0].title);
+  	        }
+  	      });
+  	}
+</script>
+</html>
