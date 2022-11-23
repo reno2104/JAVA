@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>안녕하세요 여기는 Moive 화면 입니다.</h2>
+	<p id="data"></p>
+</body>
+<script
+    src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"
+  ></script>
+<script type="text/javascript">
+	callMyAPI();//함수 호출
+	
+	function callMyAPI(){
+		//ajax : 백엔드와 프론트가 통신하는 기능!
+		//type : GET == Controller에 GetMapping.
+		//dataType : return 데이터를 json으로 받음.
+		$.ajax({
+			url: '/api/v1/movies',
+			type: 'GET',
+	        dataType: 'json',
+	        success: function (response) {
+	        	console.log(response);
+	        	$('#data').append(response[0].title);
+	        }
+		});		
+	}
+</script>
+</html>
