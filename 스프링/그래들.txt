@@ -1,0 +1,8 @@
+implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+//실시간으로 화면 수정
+developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+//롬복~!!
+annotationProcessor 'org.projectlombok:lombok'
+compileOnly 'org.projectlombok:lombok'
